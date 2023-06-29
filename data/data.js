@@ -4,11 +4,11 @@ const chats = [
     users: [
       {
         name: "Deepu Doe",
-        email: "Deepu@example.com",
+        email: "DeepuDoe@example.com",
       },
       {
-        name: "Deep",
-        email: "Deep@example.com",
+        name: "Deepanshu",
+        email: "Deepanshu@example.com",
       },
     ],
     _id: "617a077e18c25468bc7c4dd4",
@@ -18,16 +18,16 @@ const chats = [
     isGroupChat: false,
     users: [
       {
-        name: "Guest User",
-        email: "guest@example.com",
+        name: "Rohit",
+        email: "Rohit@example.com",
       },
       {
-        name: "Deep",
-        email: "Deep@example.com",
+        name: "Himanshu",
+        email: "Himanshu@example.com",
       },
     ],
     _id: "617a077e18c25468b27c4dd4",
-    chatName: "Guest User",
+    chatName: "Rohit",
   },
   {
     isGroupChat: false,
@@ -37,8 +37,8 @@ const chats = [
         email: "anthony@example.com",
       },
       {
-        name: "Deep",
-        email: "Deep@example.com",
+        name: "Sujal",
+        email: "Sujal@example.com",
       },
     ],
     _id: "617a077e18c2d468bc7c4dd4",
@@ -49,60 +49,60 @@ const chats = [
     users: [
       {
         name: "Deepu Doe",
-        email: "Dip@example.com",
+        email: "DeepuDoe@example.com",
       },
       {
-        name: "Deep",
-        email: "Deep@example.com",
+        name: "Deepanshu",
+        email: "Deepanshu@example.com",
       },
       {
-        name: "Guest User",
-        email: "guest@example.com",
+        name: "Rohit",
+        email: "Rohit@example.com",
       },
     ],
     _id: "617a518c4081150716472c78",
     chatName: "Friends",
     groupAdmin: {
-      name: "Guest User",
-      email: "guest@example.com",
+      name: "Rohit",
+      email: "Rohit@example.com",
     },
   },
   {
     isGroupChat: false,
     users: [
       {
-        name: "Jane Doe",
-        email: "jane@example.com",
+        name: "Krish",
+        email: "Krish@example.com",
       },
       {
-        name: "Deep",
-        email: "Deep@example.com",
+        name: "Dishu",
+        email: "Dishu@example.com",
       },
     ],
     _id: "617a077e18c25468bc7cfdd4",
-    chatName: "Jane Doe",
+    chatName: "Krish",
   },
   {
     isGroupChat: true,
     users: [
       {
         name: "Deepu Doe",
-        email: "Dip@example.com",
+        email: "DeepDoe@example.com",
       },
       {
-        name: "Deep",
-        email: "Deep@example.com",
+        name: "Deepanshu",
+        email: "Deepanshu@example.com",
       },
       {
-        name: "Guest User",
-        email: "guest@example.com",
+        name: "Rohit",
+        email: "Rohit@example.com",
       },
     ],
     _id: "617a518c4081150016472c78",
     chatName: "Chill Zone",
     groupAdmin: {
-      name: "Guest User",
-      email: "guest@example.com",
+      name: "Rohit",
+      email: "Rohit@example.com",
     },
   },
 ];

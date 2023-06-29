@@ -1,31 +1,31 @@
 const asyncHandler = require("express-async-handler");
-const Chat = require('../models/chatModels');
+const Chat = require("../models/chatModel");
 const User = require("../models/userModel");
 
 const accessChat = asyncHandler(async (req, res) => {
-    const { userId } = req.body;
+  const { userId } = req.body;
 
-    if (!userId) {
-        console.log("UserId param not sent with request");
-        return res.sendStatus(400);
-    }
+  if (!userId) {
+    console.log("UserId param not sent with request");
+    return res.sendStatus(400);
+  }
 
-    var isChat = await Chat.find({
-      isGroupChat: false,
-      $and: [
-        { users: { $elemMatch: { $eq: req.user._id } } },
-        { users: { $elemMatch: { $eq: userId } } },
-      ],
-    })
-      .populate("users", "-password")
-        .populate("latestMessage");
-    
-      isChat = await User.populate(isChat, {
-        path: "latestMessage.sender",
-        select: "name pic email",
-      });
-    
-      if (isChat.length > 0) {
+  var isChat = await Chat.find({
+    isGroupChat: false,
+    $and: [
+      { users: { $elemMatch: { $eq: req.user._id } } },
+      { users: { $elemMatch: { $eq: userId } } },
+    ],
+  })
+    .populate("users", "-password")
+    .populate("latestMessage");
+
+  isChat = await User.populate(isChat, {
+    path: "latestMessage.sender",
+    select: "name pic email",
+  });
+
+  if (isChat.length > 0) {
     res.send(isChat[0]);
   } else {
     var chatData = {
@@ -33,7 +33,7 @@ const accessChat = asyncHandler(async (req, res) => {
       isGroupChat: false,
       users: [req.user._id, userId],
     };
-try {
+    try {
       const createdChat = await Chat.create(chatData);
       const FullChat = await Chat.findOne({ _id: createdChat._id }).populate(
         "users",
@@ -43,14 +43,9 @@ try {
     } catch (error) {
       res.status(400);
       throw new Error(error.message);
-          };
+    }
   }
-
-    
-    
-    
-
-}); 
+});
 
 const fetchChats = asyncHandler(async (req, res) => {
   try {
@@ -152,7 +147,7 @@ const addToGroup = asyncHandler(async (req, res) => {
 });
 
 const removeFromGroup = asyncHandler(async (req, res) => {
-  const { chatId, userId } = req.body; 
+  const { chatId, userId } = req.body;
 
   const removed = await Chat.findByIdAndUpdate(
     chatId,
@@ -170,10 +165,9 @@ const removeFromGroup = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("Chat Not Found");
   } else {
-    res.json(removed); 
+    res.json(removed);
   }
 });
-
 
 module.exports = {
   accessChat,
